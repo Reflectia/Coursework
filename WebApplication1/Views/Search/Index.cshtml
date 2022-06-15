@@ -1,0 +1,69 @@
+﻿@model WebApplication1.Models.Shazam
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h2>Enter the name of track</h2>
+<form asp-controller="Search" asp-action="Index">
+    <p>
+        Name: <input type="text" name="SearchString" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+<div class="form-horizontal">
+    <hr />
+    <div class="form-group">
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tracks.Hits.FirstOrDefault().Track.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tracks.Hits.FirstOrDefault().Track.Subtitle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tracks.Hits.FirstOrDefault().Track.Share.Href)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tracks.Hits.FirstOrDefault().Track.Share.Image)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tracks.Hits.FirstOrDefault().Track.Share.Avatar)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.Tracks.Hits) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Track.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Track.Subtitle)
+                    </td>
+                    <td>
+                         <a href="@item.Track.Share.Href">@item.Track.Share.Subject</a> 
+                    </td>
+                    <td>
+                        <img src="@item.Track.Share.Image" alt="Track Image" width="375" height="375"/>
+                    </td>
+                    <td>
+                        @if(item.Track.Share.Avatar == null)
+                        {
+                            <img src="@item.Track.Share.Image" alt="Artist Image" width="375" height="375"/>
+                        }
+                        else
+                        {
+                            <img src="@item.Track.Share.Avatar" alt="Artist Image" width="375" height="375"/>
+                        }                        
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Track.Key">Details</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
