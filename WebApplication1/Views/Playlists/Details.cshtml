@@ -1,0 +1,98 @@
+﻿@model WebApplication1.Models.Playlist
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Playlist</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Img)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="@Model.Img" alt="Playlist Image" width="100" height="100"/>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TracksCount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TracksCount)
+        </dd>
+    </dl>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tracks.FirstOrDefault().Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tracks.FirstOrDefault().Subtitle)
+            </th>
+            <th>
+                Audio
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tracks.FirstOrDefault().Background)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tracks.FirstOrDefault().Coverart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tracks.FirstOrDefault().Genres)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Tracks) {  
+        Uri uri = new Uri(item.Uri);
+        string videoid = uri.Segments.Last();
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subtitle)
+            </td>
+            <td>
+                <div class="hideblock"></div>
+                <img src="https://cdn4.iconfinder.com/data/icons/eldorado-player/40/symbol_play_1-1024.png" class="button" loading="lazy">     
+                <iframe loading="lazy" title="Music audio" width="350" height="170" src="@item.Uri?modestbranding=1&showinfo=0&fs=0" frameborder="0"></iframe>                  
+            </td>
+            <td>
+                <img src="@item.Background" alt="Artist Image" width="300" height="300"/>
+            </td>
+            <td>
+                <img src="@item.Coverart" alt="Track Image" width="300" height="300"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genres)
+            </td>
+            <td>                
+                <a asp-action="GetLink" asp-route-id="@videoid">Download Link</a>
+                <br>
+                <a asp-action="Edit" asp-route-id="@item.Key">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Key">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Key">Delete</a> |
+            </td>  
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

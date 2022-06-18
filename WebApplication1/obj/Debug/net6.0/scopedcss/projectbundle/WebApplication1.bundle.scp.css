@@ -1,3 +1,28 @@
+/* _content/WebApplication1/Views/Playlists/Details.cshtml.rz.scp.css */
+body[b-ptg2i9jhd6] {
+}
+
+.hideblock[b-ptg2i9jhd6] {
+    position: absolute;
+    background-color: white;
+    width: 350px;
+    height: 120px;
+}
+
+.button[b-ptg2i9jhd6] {
+    margin-top: 126px;
+    margin-left: 165px;
+    position: absolute;
+    width: 2.3%;
+    height: 3.3%;
+    transition-property: transform, pointer-events;
+    transition-duration: 1s, 5s;
+}
+
+.button:hover[b-ptg2i9jhd6] {
+    transform: scale(1.2);
+    pointer-events: none;
+}
 /* _content/WebApplication1/Views/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
@@ -47,6 +72,31 @@ button.accept-policy[b-bddmc6yalx] {
   white-space: nowrap;
   line-height: 60px;
 }
+/* _content/WebApplication1/Views/Tracks/ArtistDetails.cshtml.rz.scp.css */
+body[b-0nq0lmdqkf] {
+}
+
+.hideblock[b-0nq0lmdqkf] {
+    position: absolute;
+    background-color: white;
+    width: 350px;
+    height: 120px;
+}
+
+.button[b-0nq0lmdqkf] {
+    margin-top: 128px;
+    margin-left: 165px;
+    position: absolute;
+    width: 2.3%;
+    height: 4.2%;
+    transition-property: transform, pointer-events;
+    transition-duration: 1s, 5s;
+}
+
+.button:hover[b-0nq0lmdqkf] {
+    transform: scale(1.2);
+    pointer-events: none;
+}
 /* _content/WebApplication1/Views/Tracks/Index.cshtml.rz.scp.css */
 body[b-4pmb4g5j2c] {
 }
@@ -59,11 +109,11 @@ body[b-4pmb4g5j2c] {
 }
 
 .button[b-4pmb4g5j2c] {
-    margin-top: 128px;
+    margin-top: 127px;
     margin-left: 165px;
     position: absolute;
-    width: 2%;
-    height: 1.8%;
+    width: 2.3%;
+    height: 1.5%;
     transition-property: transform, pointer-events;
     transition-duration: 1s, 5s;
 }

@@ -1,0 +1,24 @@
+body[b-0nq0lmdqkf] {
+}
+
+.hideblock[b-0nq0lmdqkf] {
+    position: absolute;
+    background-color: white;
+    width: 350px;
+    height: 120px;
+}
+
+.button[b-0nq0lmdqkf] {
+    margin-top: 128px;
+    margin-left: 165px;
+    position: absolute;
+    width: 2.3%;
+    height: 4.2%;
+    transition-property: transform, pointer-events;
+    transition-duration: 1s, 5s;
+}
+
+.button:hover[b-0nq0lmdqkf] {
+    transform: scale(1.2);
+    pointer-events: none;
+}

@@ -33,7 +33,30 @@ namespace WebApplication1.Controllers
             return View(await tracks.ToListAsync());             
         }
 
-        public IActionResult Add(string Key, string Title, string Subtitle, string Background, string Coverart, string Genres, string Text, string Footer, string Caption, string Uri) {
+        public IActionResult Artists() 
+        {
+            var tracksDist = _context.Track
+                .GroupBy(t => t.Subtitle)
+                .Select(g => g.First())
+                .ToList();
+
+            Constants.tracksCount = _context.Track
+                .GroupBy(t => t.Subtitle)
+                .Select(g => g.Count())
+                .ToList();
+
+            return View(tracksDist);
+        }
+
+        
+        public async Task<IActionResult> ArtistDetails(string id) 
+        {
+            var tracks = _context.Track.Where(s => s.Subtitle == id);
+            return View(await tracks.ToListAsync());
+        }
+
+        public IActionResult Add(string Key, string Title, string Subtitle, string Background, string Coverart, string Genres, string Text, string Footer, string Caption, string Uri) 
+        {
             Track track = new
                 (
                     Key,
@@ -107,7 +130,10 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Index");
         }
 
-
+        public async Task<IActionResult> AddToPlaylist(string id) {
+            Constants.trackId = id;
+            return View("~/Views/Playlists/Menu.cshtml", await _context.Playlist.ToListAsync());
+        }
 
 
 
@@ -219,11 +245,12 @@ namespace WebApplication1.Controllers
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
+        }       
+       
         private bool TrackExists(string id)
         {
           return _context.Track.Any(e => e.Key == id);
         }
+       
     }
 }

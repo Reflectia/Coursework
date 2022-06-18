@@ -14,6 +14,7 @@ namespace WebApplication1.Models {
         public string Footer { get; set; }
         public string Caption { get; set; }
         public string Uri { get; set; }
+        public int PlaylistId { get; set; }
 
         public Track() {}
         public Track(string key, string title, string subtitle, string background, string coverart, string genres, string text, string footer, string caption, string uri) {

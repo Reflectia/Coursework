@@ -15,5 +15,7 @@ namespace WebApplication1.Data
         }
 
         public DbSet<Track> Track { get; set; }
+
+        public DbSet<WebApplication1.Models.Playlist> Playlist { get; set; }
     }
 }
