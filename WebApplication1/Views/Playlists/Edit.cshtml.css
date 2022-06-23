@@ -1,0 +1,41 @@
+﻿body {
+}
+
+ul {
+    list-style: none;
+}
+
+a img {
+    margin: 0 10px;
+}
+
+a:hover {
+    display: block;
+}
+
+.sgLi {
+    display: inline-flex;
+}
+
+.item {
+    width: 300px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px 10px 10px 10px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0, .2);
+}
+
+.item li p {
+    opacity: .6;
+}
+
+.trackImg {
+    margin-top: 10px;
+    border-radius: 50%;
+}
+
+.sgLi li {
+    text-align: center;
+}

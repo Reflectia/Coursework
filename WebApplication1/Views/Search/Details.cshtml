@@ -26,13 +26,13 @@
             @Html.DisplayNameFor(model => model.Background)            
         </dt>
         <dd class = "col-sm-10">
-            <img src="@Model.Background" alt="Artist Image" width="375" height="375"/>
+            <img src="@Model.Background" alt="Artist Image" width="230" height="230" style="border:3px solid white;"/>
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Coverart)
         </dt>
         <dd class = "col-sm-10">
-            <img src="@Model.Coverart" alt="Track Image" width="375" height="375"/>
+            <img src="@Model.Coverart" alt="Track Image" width="230" height="230" style="border:3px solid white;"/>
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Genres)
@@ -45,7 +45,7 @@
         </dt>
         <dd class = "col-sm-10">
             @{
-                var lyrics = Model.Text.Split("/n");
+                var lyrics = Model.Text.Split(".");
                 foreach(string l in lyrics)
                 {
                     <div>@l.ToString()</div>
@@ -57,7 +57,7 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Footer)
-        </dd>
+        </dd>     
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Caption)
         </dt>
@@ -68,10 +68,11 @@
             @Html.DisplayNameFor(model => model.Uri)
         </dt>
         <dd class = "col-sm-10">                 
-            <iframe loading="lazy" title="Music video" width="640" height="360" src="@Model.Uri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe style="border:3px solid white;" loading="lazy" title="Music video" width="640" height="360" src="@Model.Uri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </dd>
     </dl>
 </div>
+    <br />
 <div>
     @{
         var newItem = new Dictionary<string, string>
@@ -88,6 +89,7 @@
                 {"Uri", Model.Uri }
             };
     }
+    <br />
     <a asp-controller="Tracks" asp-action="Add" asp-all-route-data="newItem">Add</a> | 
     <a asp-controller="Home" asp-action="Search">Back to Search</a>
 </div>

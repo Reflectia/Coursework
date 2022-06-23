@@ -4,21 +4,59 @@ body[b-0nq0lmdqkf] {
 .hideblock[b-0nq0lmdqkf] {
     position: absolute;
     background-color: white;
-    width: 350px;
-    height: 120px;
+    width: 351px;
+    height: 122px;
 }
+
+    .hideblock p[b-0nq0lmdqkf] {
+        opacity: .6;
+    }
 
 .button[b-0nq0lmdqkf] {
     margin-top: 128px;
-    margin-left: 165px;
+    margin-left: 159px;
     position: absolute;
-    width: 2.3%;
-    height: 4.2%;
+    width: 35px;
+    height: 35px;
     transition-property: transform, pointer-events;
     transition-duration: 1s, 5s;
 }
 
-.button:hover[b-0nq0lmdqkf] {
-    transform: scale(1.2);
-    pointer-events: none;
+    .button:hover[b-0nq0lmdqkf] {
+        transform: scale(1.15);
+        pointer-events: none;
+    }
+
+ul[b-0nq0lmdqkf] {
+    list-style: none;
+}
+
+a img[b-0nq0lmdqkf] {
+    margin: 0 10px;
+}
+
+a:hover[b-0nq0lmdqkf] {
+    display: block;
+}
+
+.sgLi[b-0nq0lmdqkf] {
+    display: inline-flex;
+}
+
+.item[b-0nq0lmdqkf] {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px 5px 0 5px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0, .2);
+}
+
+.trackImg[b-0nq0lmdqkf] {
+    margin-top: 10px;
+    border-radius: 50%;
+}
+
+.sgLi li[b-0nq0lmdqkf] {
+    text-align: center;
 }

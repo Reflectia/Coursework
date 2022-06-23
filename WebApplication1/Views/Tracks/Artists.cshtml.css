@@ -1,0 +1,47 @@
+﻿body {
+}
+
+ul {
+    list-style: none;
+}
+
+.SG {
+    margin-left: 5%;
+}
+
+a img {
+    margin: 0 10px;
+}
+
+a:hover {
+    display: block;
+}
+
+.sgLi {
+    display: inline-flex;
+}
+
+.item {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px 5px 10px 5px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0, .2);
+}
+
+    .item li div {
+        font-size: 20px;
+    }
+
+    .item li p {
+        opacity: .6;
+    }
+
+.playlistImg {
+    border-radius: 10px;
+}
+
+.sgLi li {
+    text-align: center;
+}

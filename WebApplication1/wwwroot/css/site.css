@@ -14,5 +14,28 @@ html {
 }
 
 body {
+  background-color: black;
   margin-bottom: 60px;
+}
+
+a {
+    color: #3862e0;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #18399a;
+}
+
+li {
+    color: black;
+}
+
+table th, td {
+    color: white;
+}
+
+input[type=submit] {
+    background-color: #3862e0;
+    color: white;
 }

@@ -26,13 +26,13 @@
             @Html.DisplayNameFor(model => model.Background)            
         </dt>
         <dd class = "col-sm-10">
-            <img src="@Model.Background" alt="Artist Image" width="375" height="375"/>
+            <img src="@Model.Background" alt="Artist Image" width="230" height="230" style="border:3px solid white;"/>
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Coverart)
         </dt>
         <dd class = "col-sm-10">
-            <img src="@Model.Coverart" alt="Track Image" width="375" height="375"/>
+            <img src="@Model.Coverart" alt="Track Image" width="230" height="230" style="border:3px solid white;"/>
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Genres)
@@ -45,18 +45,44 @@
         </dt>
         <dd class = "col-sm-10">
             @{
-                var lyrics = Model.Text.Split("/n");
+                var lyrics = Model.Text.Split(".");
                 foreach(string l in lyrics)
                 {
                     <div>@l.ToString()</div>
                 }
             }
-        </dd>
+        </dd>        
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Footer)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Footer)
+        </dd>
+        <dt class = "col-sm-2">
+            Translation
+        </dt>
+        <dd class = "col-sm-10">
+            <form asp-controller="Translation" asp-action="Index">
+                <input type="hidden" asp-for="Key" />
+                <input type="hidden" asp-for="Text" />
+                <input list="tl" name="tl">
+                <datalist id="tl">
+                    @foreach(var lang in Model.lang)
+                    {
+                        <option value="@lang.Key">@lang.Value</option>
+                    }
+                </datalist> 
+                <input type="submit" value="Translate" />
+            </form> 
+            @if(Constants.tranText != null)
+            {
+                var lyricsTr = Constants.tranText.data.translation.Split(".");
+                foreach(string l in lyricsTr)
+                {
+                    <div>@l.ToString()</div>
+                }
+                Constants.tranText = null;
+            }
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Caption)
@@ -68,7 +94,7 @@
             @Html.DisplayNameFor(model => model.Uri)
         </dt>
         <dd class = "col-sm-10">                 
-            <iframe loading="lazy" title="Music video" width="640" height="360" src="@Model.Uri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe style="border:3px solid white;" loading="lazy" title="Music video" width="640" height="360" src="@Model.Uri" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </dd>
     </dl>
 </div>

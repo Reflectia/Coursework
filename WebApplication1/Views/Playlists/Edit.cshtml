@@ -23,66 +23,49 @@
                 <input asp-for="Img" class="form-control" />
                 <span asp-validation-for="Img" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
+<br />
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Tracks.FirstOrDefault().Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tracks.FirstOrDefault().Subtitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tracks.FirstOrDefault().Background)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tracks.FirstOrDefault().Coverart)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tracks.FirstOrDefault().Genres)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model.Tracks) {  
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Subtitle)
-            </td>
-            <td>
-                <img src="@item.Background" alt="Artist Image" width="100" height="100"/>
-            </td>
-            <td>
-                <img src="@item.Coverart" alt="Track Image" width="100" height="100"/>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genres)
-            </td>
-            <td>   
-                @{
-                    var parms = new Dictionary<string, string>
-                    {
-                        { "trackId", item.Key },
-                        { "playlistId", Model.Id.ToString() }
-                    };
-                }
-                <a asp-action="DeleteTrack" asp-all-route-data="parms">Remove from playlist</a> 
-            </td>  
-        </tr>
+@if (Model.Tracks.FirstOrDefault() != null) 
+{
+<ul>
+    @foreach(var item in Model.Tracks)
+    {
+    <li class="sgLi"> 
+        <div>
+            <ul class="item">
+                <li>
+                    <img src="@item.Coverart" alt="Track Image" width="200" height="200" class="trackImg"/>
+                </li>
+                <li>
+                    <br />
+                    <div>@Html.DisplayFor(modelItem => item.Title) — @Html.DisplayFor(modelItem => item.Subtitle)</div>  
+                    <p>@Html.DisplayFor(modelItem => item.Genres)</p>                 
+                </li>
+                <li>
+                    @{
+                        var parms = new Dictionary<string, string>
+                        {
+                            { "trackId", item.Key },
+                            { "playlistId", Model.Id.ToString() }
+                        };
+                    }
+                    <form asp-action="DeleteTrack" asp-all-route-data="parms">
+                        <input type="submit" value="Remove from playlist" class="btn btn-primary"/>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </li>
     }
-    </tbody>
-</table>
+</ul>
+}
 
 <div>
     <a asp-action="Index">Back to List</a>

@@ -6,7 +6,8 @@ using WebApplication1.Models;
 namespace WebApplication1.Controllers {
     public class SearchController : Controller {
 
-        public async Task<ActionResult> Index(string searchString) {
+        public async Task<ActionResult> Index(string searchString) 
+        {
             HttpClient client = new HttpClient();
             var request = new HttpRequestMessage
             {
@@ -15,7 +16,7 @@ namespace WebApplication1.Controllers {
                 Headers =
                 {
                     { "X-RapidAPI-Host", Constants.host },
-                    { "X-RapidAPI-Key", Constants.apikey },
+                    { "X-RapidAPI-Key", Constants.extraApikey },
                 },
             };
             Shazam result;
@@ -25,10 +26,11 @@ namespace WebApplication1.Controllers {
                 var content = response.Content.ReadAsStringAsync().Result;
                 result = JsonConvert.DeserializeObject<Shazam>(content);
             }
-            return View(result);
+            return View(result); 
         }
 
-        public async Task<ActionResult> Details(string id) {
+        public async Task<ActionResult> Details(string id) 
+        {
             HttpClient client = new HttpClient();
             var request = new HttpRequestMessage
             {
@@ -37,7 +39,7 @@ namespace WebApplication1.Controllers {
                 Headers =
                 {
                     { "X-RapidAPI-Host", Constants.host },
-                    { "X-RapidAPI-Key", Constants.apikey },
+                    { "X-RapidAPI-Key", Constants.extraApikey },
                 },
             };
             TrackInfo result;
@@ -67,7 +69,7 @@ namespace WebApplication1.Controllers {
                 Uri uri = new Uri(result.Sections[2].Youtubeurl.Actions[0].Uri);
                 string videoid = uri.Segments.Last();
                 string videouri = $"https://www.youtube.com/embed/{videoid}";
-                string lyrics = string.Join("/n", result.Sections[1].Text.ToArray());
+                string lyrics = string.Join(".", result.Sections[1].Text.ToArray()); ///////////
                 newItem = new(
                     result.Key, result.Title, result.Subtitle,
                     result.Images.Background, result.Images.Coverart,
@@ -78,63 +80,6 @@ namespace WebApplication1.Controllers {
                 );
             }
             return View(newItem);
-        }
-
-        // GET: SearchController/Create
-        public ActionResult Create() {
-            return View();
-        }
-
-        // POST: SearchController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection) {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: SearchController/Edit/5
-        public ActionResult Edit(int id) {
-            return View();
-        }
-
-        // POST: SearchController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection) {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: SearchController/Delete/5
-        public ActionResult Delete(int id) {
-            return View();
-        }
-
-        // POST: SearchController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection) {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        }       
     }
 }

@@ -1,0 +1,47 @@
+body[b-im5g9r2u5g] {
+}
+
+ul[b-im5g9r2u5g] {
+    list-style: none;
+}
+
+.SG[b-im5g9r2u5g] {
+    margin-left: 5%;
+}
+
+a img[b-im5g9r2u5g] {
+    margin: 0 10px;
+}
+
+a:hover[b-im5g9r2u5g] {
+    display: block;
+}
+
+.sgLi[b-im5g9r2u5g] {
+    display: inline-flex;
+}
+
+.item[b-im5g9r2u5g] {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px 5px 10px 5px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0, .2);
+}
+
+.item li div[b-im5g9r2u5g] {
+    font-size: 20px;
+}
+
+.item li p[b-im5g9r2u5g] {
+    opacity: .6;
+}
+
+.playlistImg[b-im5g9r2u5g] {
+    border-radius: 10px;
+}
+
+.sgLi li[b-im5g9r2u5g] {
+    text-align: center;
+}

@@ -6,7 +6,7 @@
 
 <h1>All Tracks</h1>
 
-<p>The list of all tracks</p>
+<p class="white">The list of all tracks</p>
 
 <form asp-controller="Tracks" asp-action="Index">
     <p>
@@ -14,65 +14,44 @@
         <input type="submit" value="Filter" />
     </p>
 </form>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Subtitle)
-            </th>
-            <th>
-                Audio
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Background)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Coverart)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genres)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model) {  
+<br />
+<ul>
+    @foreach(var item in Model)
+    {
         Uri uri = new Uri(item.Uri);
         string videoid = uri.Segments.Last();
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Subtitle)
-            </td>
-            <td>
-                <div class="hideblock"></div>
-                <img src="https://cdn4.iconfinder.com/data/icons/eldorado-player/40/symbol_play_1-1024.png" class="button" loading="lazy">     
-                <iframe loading="lazy" title="Music audio" width="350" height="170" src="@item.Uri?modestbranding=1&showinfo=0&fs=0" frameborder="0"></iframe>                  
-            </td>
-            <td>
-                <img src="@item.Background" alt="Artist Image" width="300" height="300"/>
-            </td>
-            <td>
-                <img src="@item.Coverart" alt="Track Image" width="300" height="300"/>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genres)
-            </td>
-            <td>                
-                <a asp-action="GetLink" asp-route-id="@videoid">Download Link</a>
-                <br>
-                <a asp-action="Edit" asp-route-id="@item.Key">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Key">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Key">Delete</a> |
-                <a asp-action="AddToPlaylist" asp-route-id="@item.Key">Add to playlist</a>
-            </td>  
-        </tr>
+    <li class="sgLi"> 
+        <div>
+            <ul class="item">
+                <li>
+                    <img src="@item.Coverart" alt="Track Image" width="230" height="230" class="trackImg"/>
+                </li>
+                <li>
+                    <div class="hideblock">
+                        <br/>
+                        <div>@Html.DisplayFor(modelItem => item.Title) — @Html.DisplayFor(modelItem => item.Subtitle)</div>  
+                        <p>@Html.DisplayFor(modelItem => item.Genres)</p>
+                        <a asp-action="GetLink" asp-route-id="@videoid" title="Download Link">
+                            <img src="https://icon-library.com/images/download-icon-black/download-icon-black-10.jpg" width="25" height="25">
+                        </a> 
+                        <a asp-action="Edit" asp-route-id="@item.Key" title="Edit">
+                            <img src="https://www.seekpng.com/png/full/202-2022672_edit-comments-edit-icon-png-circle.png" width="25" height="25">
+                        </a>
+                        <a asp-action="Details" asp-route-id="@item.Key" title="Details">
+                            <img src="https://www.shareicon.net/data/512x512/2015/11/07/668200_info_512x512.png" width="25" height="25">
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Key" title="Delete">
+                            <img src="https://cdn-icons-png.flaticon.com/512/70/70091.png" width="25" height="25">
+                        </a>
+                        <a asp-action="AddToPlaylist" asp-route-id="@item.Key" title="Add to Playlist">
+                            <img src="https://static.thenounproject.com/png/1676791-200.png" width="25" height="25">
+                        </a>
+                    </div>
+                    <img src="https://cyrilmagic.com/wp-content/uploads/2020/05/PLAY-BUTTON-WHITE.png" class="button" loading="lazy">
+                    <iframe loading="lazy" title="Music audio" width="350" height="170" src="@item.Uri?modestbranding=1&showinfo=0&fs=0" frameborder="0"></iframe>
+                </li>
+            </ul>
+        </div>
+    </li>
     }
-    </tbody>
-</table>
+</ul>

@@ -11,6 +11,8 @@
         <input type="submit" value="Search" />
     </p>
 </form>
+@if (Model != null)
+{
 <div class="form-horizontal">
     <hr />
     <div class="form-group">
@@ -47,16 +49,16 @@
                          <a href="@item.Track.Share.Href">@item.Track.Share.Subject</a> 
                     </td>
                     <td>
-                        <img src="@item.Track.Share.Image" alt="Track Image" width="375" height="375"/>
+                        <img src="@item.Track.Share.Image" alt="Track Image" width="230" height="230"/>
                     </td>
                     <td>
                         @if(item.Track.Share.Avatar == null)
                         {
-                            <img src="@item.Track.Share.Image" alt="Artist Image" width="375" height="375"/>
+                            <img src="@item.Track.Share.Image" alt="Artist Image" width="230" height="230"/>
                         }
                         else
                         {
-                            <img src="@item.Track.Share.Avatar" alt="Artist Image" width="375" height="375"/>
+                            <img src="@item.Track.Share.Avatar" alt="Artist Image" width="230" height="230"/>
                         }                        
                     </td>
                     <td>
@@ -67,3 +69,4 @@
         </table>
     </div>
 </div>
+}

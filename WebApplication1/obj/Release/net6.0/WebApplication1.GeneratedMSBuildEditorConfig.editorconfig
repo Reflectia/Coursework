@@ -15,18 +15,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Курсова\WebApplication1\WebApplication1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Курсова/WebApplication1/WebApplication1/Views/Home/Artists.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBcnRpc3RzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Курсова/WebApplication1/WebApplication1/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Курсова/WebApplication1/WebApplication1/Views/Home/Search.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2guY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Курсова/WebApplication1/WebApplication1/Views/Playlists/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -35,24 +23,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Курсова/WebApplication1/WebApplication1/Views/Playlists/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Курсова/WebApplication1/WebApplication1/Views/Playlists/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Курсова/WebApplication1/WebApplication1/Views/Playlists/Menu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXE1lbnUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Курсова/WebApplication1/WebApplication1/Views/Search/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Курсова/WebApplication1/WebApplication1/Views/Search/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Курсова/WebApplication1/WebApplication1/Views/Shared/Error.cshtml]
@@ -65,14 +41,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Курсова/WebApplication1/WebApplication1/Views/Tracks/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhY2tzXEFkZC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Курсова/WebApplication1/WebApplication1/Views/Tracks/Artists.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhY2tzXEFydGlzdHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Курсова/WebApplication1/WebApplication1/Views/Tracks/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhY2tzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Курсова/WebApplication1/WebApplication1/Views/Tracks/Delete.cshtml]
@@ -99,6 +67,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ptg2i9jhd6
 
+[C:/Курсова/WebApplication1/WebApplication1/Views/Playlists/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-m7sn8r6fst
+
+[C:/Курсова/WebApplication1/WebApplication1/Views/Playlists/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGxheWxpc3RzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-im5g9r2u5g
+
+[C:/Курсова/WebApplication1/WebApplication1/Views/Search/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-a49txtx3yy
+
 [C:/Курсова/WebApplication1/WebApplication1/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bddmc6yalx
@@ -106,6 +86,10 @@ build_metadata.AdditionalFiles.CssScope = b-bddmc6yalx
 [C:/Курсова/WebApplication1/WebApplication1/Views/Tracks/ArtistDetails.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhY2tzXEFydGlzdERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-0nq0lmdqkf
+
+[C:/Курсова/WebApplication1/WebApplication1/Views/Tracks/Artists.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhY2tzXEFydGlzdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-o6de3z7ikd
 
 [C:/Курсова/WebApplication1/WebApplication1/Views/Tracks/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhY2tzXEluZGV4LmNzaHRtbA==

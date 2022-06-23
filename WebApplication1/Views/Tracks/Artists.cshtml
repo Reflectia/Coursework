@@ -8,43 +8,34 @@
 
 <p>The list of artists with saved songs</p>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Subtitle)
-            </th>
-            <th>
-                Tracks count
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Background)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+<ul class="SG">
     @{
         int i = 0;
     }
-    @foreach (var item in Model) {  
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Subtitle)
-            </td>
-            <td>
-                @{
-                    <div>@Constants.tracksCount[i].ToString()</div>
-                    i++;
-                }
-            </td>
-            <td>
-                <img src="@item.Background" alt="Artist Image" width="100" height="100"/>
-            </td>   
-            <td>                
-                <a asp-action="ArtistDetails" asp-route-id="@item.Subtitle">Details</a> 
-            </td> 
-        </tr>
+    @foreach(var item in Model)
+    {
+    <li class="sgLi"> 
+        <div>
+            <ul class="item">
+                <li>
+                    <img src="@item.Background" alt="Artist Image" width="230" height="230"/>
+                </li>
+                <li>
+                    <div>@Html.DisplayFor(modelItem => item.Subtitle)</div>
+                </li>
+                <li>
+                    @{
+                        <p>Tracks count: @Constants.tracksCount[i].ToString()</p>
+                        i++;
+                    }
+                </li>
+                <li>
+                    <a asp-action="ArtistDetails" asp-route-id="@item.Subtitle" title="Details">
+                        <img src="https://www.shareicon.net/data/512x512/2015/11/07/668200_info_512x512.png" width="25" height="25">
+                    </a>              
+                </li>
+            </ul>
+        </div>
+    </li>
     }
-    </tbody>
-</table>
+</ul>

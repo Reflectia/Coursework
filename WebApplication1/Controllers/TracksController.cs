@@ -47,7 +47,6 @@ namespace WebApplication1.Controllers
 
             return View(tracksDist);
         }
-
         
         public async Task<IActionResult> ArtistDetails(string id) 
         {
@@ -85,7 +84,6 @@ namespace WebApplication1.Controllers
             return View(track);            
         }
 
-        // GET: Tracks/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null || _context.Track == null)
@@ -133,33 +131,8 @@ namespace WebApplication1.Controllers
         public async Task<IActionResult> AddToPlaylist(string id) {
             Constants.trackId = id;
             return View("~/Views/Playlists/Menu.cshtml", await _context.Playlist.ToListAsync());
-        }
+        }     
 
-
-
-        // GET: Tracks/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Tracks/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Key,Title,Subtitle,Background,Coverart,Genres,Text,Footer,Caption,Uri")] Track track)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(track);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(track);
-        }
-
-        // GET: Tracks/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.Track == null)
@@ -175,17 +148,11 @@ namespace WebApplication1.Controllers
             return View(track);
         }
 
-        // POST: Tracks/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Key,Title,Subtitle,Background,Coverart,Genres,Text,Footer,Caption,Uri")] Track track)
         {
-            if (id != track.Key)
-            {
-                return NotFound();
-            }
+            if (id != track.Key) return NotFound();
 
             if (ModelState.IsValid)
             {
@@ -196,53 +163,42 @@ namespace WebApplication1.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TrackExists(track.Key))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
+                    if (!TrackExists(track.Key)) return NotFound();
                         throw;
-                    }
                 }
                 return RedirectToAction(nameof(Index));
             }
             return View(track);
         }
 
-        // GET: Tracks/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
-            if (id == null || _context.Track == null)
-            {
-                return NotFound();
-            }
+            if (id == null || _context.Track == null) return NotFound();
 
             var track = await _context.Track
                 .FirstOrDefaultAsync(m => m.Key == id);
-            if (track == null)
-            {
-                return NotFound();
-            }
+            if (track == null) return NotFound();
 
             return View(track);
         }
 
-        // POST: Tracks/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            if (_context.Track == null)
-            {
-                return Problem("Entity set 'WebApplication1Context.Track'  is null.");
-            }
+            if (_context.Track == null) return Problem("Entity set 'WebApplication1Context.Track'  is null.");
+
             var track = await _context.Track.FindAsync(id);
-            if (track != null)
+            if (track != null) _context.Track.Remove(track);
+
+            var playlist = await _context.Playlist.FirstOrDefaultAsync(m => m.Id == track.PlaylistId);
+            if (playlist != null)
             {
-                _context.Track.Remove(track);
+                if (playlist.TracksCount > 1)
+                    playlist.TracksCount -= 1;
+                playlist.TracksCount = 0;  
             }
-            
+                        
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }       
