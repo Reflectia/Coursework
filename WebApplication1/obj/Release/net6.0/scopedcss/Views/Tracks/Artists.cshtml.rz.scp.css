@@ -1,0 +1,47 @@
+body[b-o6de3z7ikd] {
+}
+
+ul[b-o6de3z7ikd] {
+    list-style: none;
+}
+
+.SG[b-o6de3z7ikd] {
+    margin-left: 5%;
+}
+
+a img[b-o6de3z7ikd] {
+    margin: 0 10px;
+}
+
+a:hover[b-o6de3z7ikd] {
+    display: block;
+}
+
+.sgLi[b-o6de3z7ikd] {
+    display: inline-flex;
+}
+
+.item[b-o6de3z7ikd] {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px 5px 10px 5px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0, .2);
+}
+
+    .item li div[b-o6de3z7ikd] {
+        font-size: 20px;
+    }
+
+    .item li p[b-o6de3z7ikd] {
+        opacity: .6;
+    }
+
+.playlistImg[b-o6de3z7ikd] {
+    border-radius: 10px;
+}
+
+.sgLi li[b-o6de3z7ikd] {
+    text-align: center;
+}

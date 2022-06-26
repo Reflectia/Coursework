@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="WebApplication120220624003136" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Курсова\\WebApplication1\\WebApplication1\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
+  </parameter>
+  <parameter name="WebApplication1.Data.WebApplication1Context" description="" value="Data Source=tcp:musicapplicationdbserver.database.windows.net,1433;Initial Catalog=WebApplication1_db;User Id=Nadiia@musicapplicationdbserver;Password=1029384756N@d" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Курсова\\WebApplication1\\WebApplication1\\obj\\Release\\net6\.0\\PubTmp\\EFSQLScripts\\WebApplication1\.Data\.WebApplication1Context\.sql$" />
+  </parameter>
+</parameters>
